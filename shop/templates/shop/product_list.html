@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Каталог</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 48px 24px;
+      background: #f4f6f8;
+      color: #20242a;
+      font-family: Arial, sans-serif;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 28px;
+      font-size: 36px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      padding: 24px;
+      background: white;
+      border: 1px solid #e6e9ed;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px #20242a0d;
+    }
+
+    .product h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .empty {
+      color: #68717d;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Каталог товаров</h1>
+
+    <section class="products">
+      {% for product in products %}
+        <article class="product">
+          <h2>{{ product }}</h2>
+        </article>
+      {% empty %}
+        <p class="empty">Товаров пока нет.</p>
+      {% endfor %}
+    </section>
+  </main>
+</body>
+</html>
